@@ -1,12 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import {toast} from 'react-toastify'
 import { useLocalStorage, createBudget, useWait, createExpense } from "../hooks";
-import { Intro, AddBudgetForm, AddExpenseForm, BudgetItem } from '../components'
+import { Intro, AddBudgetForm, AddExpenseForm, BudgetItem, Table } from '../components'
 
 export function dashBoardLoader(){
     const userName = useLocalStorage('userName')
     const budgets = useLocalStorage("budgets");
-    return { userName, budgets }
+    const expenses = useLocalStorage("expenses");
+    return { userName, budgets, expenses }
 }
 
 export async function dashboardAction({request}){
@@ -52,7 +53,7 @@ export async function dashboardAction({request}){
 
 export function Dashboard() {
 
-    const { userName, budgets } = useLoaderData()
+    const { userName, budgets, expenses } = useLoaderData()
 
     return (
         <div>
@@ -75,6 +76,14 @@ export function Dashboard() {
                                             ))
                                         }
                                     </div>
+                                    {
+                                        expenses && expenses.length > 0 && (
+                                            <div className="grid-md">
+                                                <h2>Recent Expenses</h2>
+                                                <Table expenses={expenses.sort((a, b) => b.createdAt - a.createdAt)} />
+                                            </div>
+                                        )
+                                    }
                                 </div>
                             ) 
                             : 

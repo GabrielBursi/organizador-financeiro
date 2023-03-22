@@ -23,3 +23,7 @@ export function calculateSpentByBudget(budgetId) {
     }, 0);
     return budgetSpent;
 }
+
+export function formatDateToLocaleString(epoch) {
+    return new Date(epoch).toLocaleDateString();
+}
