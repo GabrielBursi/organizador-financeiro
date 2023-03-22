@@ -33,7 +33,8 @@ export const AddExpenseForm = ({ budgets }) => {
                 <div className="expense-inputs">
                     <div className="grid-xs">
                         <label htmlFor="newExpense">Expense Name</label>
-                        <input
+                        <input 
+                            autoComplete="off"
                             type="text"
                             name="newExpense"
                             id="newExpense"
@@ -44,7 +45,8 @@ export const AddExpenseForm = ({ budgets }) => {
                     </div>
                     <div className="grid-xs">
                         <label htmlFor="newExpenseAmount">Amount</label>
-                        <input
+                        <input 
+                            autoComplete="off"
                             type="number"
                             step="0.01"
                             inputMode="decimal"
@@ -71,7 +73,7 @@ export const AddExpenseForm = ({ budgets }) => {
                         }
                     </select>
                 </div>
-                <input type="hidden" name="_action" value="createExpense" />
+                <input autoComplete="off" type="hidden" name="_action" value="createExpense" />
                 <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
                     {
                         isSubmitting ? <span>Submitting…</span> : (

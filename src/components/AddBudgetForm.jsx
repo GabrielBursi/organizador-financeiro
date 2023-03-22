@@ -30,7 +30,8 @@ export function AddBudgetForm() {
             >
                 <div className="grid-xs">
                     <label htmlFor="newBudget">Budget Name</label>
-                    <input
+                    <input 
+                        autoComplete='off'
                         type="text"
                         name="newBudget"
                         id="newBudget"
@@ -41,7 +42,8 @@ export function AddBudgetForm() {
                 </div>
                 <div className="grid-xs">
                     <label htmlFor="newBudgetAmount">Amount</label>
-                    <input
+                    <input 
+                        autoComplete='off'
                         type="number"
                         step="0.01"
                         name="newBudgetAmount"
@@ -51,7 +53,7 @@ export function AddBudgetForm() {
                         inputMode="decimal"
                     />
                 </div>
-                <input type="hidden" name="_action" value="createBudget" />
+                <input autoComplete='off' type="hidden" name="_action" value="createBudget" />
                 <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
                     {
                         isSubmitting ? <span>Submitting…</span> : (

@@ -19,7 +19,7 @@ export function Intro() {
                         required
                         placeholder="What is your name?"
                         aria-label="Your name"
-                        autoComplete="given-name"
+                        autoComplete="off"
                     />
                     <input type="hidden" name="_action" value="newUser" />
                     <button type="submit" className="btn btn--dark">
