@@ -1,1 +1,0 @@
-export const useWait = () => new Promise(res => setTimeout(res, Math.random() * 2000))

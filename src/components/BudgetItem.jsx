@@ -1,4 +1,4 @@
-import { calculateSpentByBudget, useFormatCurrency, useFormatPercentage } from "../hooks";
+import { calculateSpentByBudget, formatCurrency, formatPercentage } from "../helpers";
 
 export function BudgetItem({ budget }) {
     const { id, name, amount, color } = budget;
@@ -13,14 +13,14 @@ export function BudgetItem({ budget }) {
         >
             <div className="progress-text">
                 <h3>{name}</h3>
-                <p>{useFormatCurrency(amount)} Budgeted</p>
+                <p>{formatCurrency(amount)} Budgeted</p>
             </div>
             <progress max={amount} value={spent}>
-                {useFormatPercentage(spent / amount)}
+                {formatPercentage(spent / amount)}
             </progress>
             <div className="progress-text">
-                <small>{useFormatCurrency(spent)} spent</small>
-                <small>{useFormatCurrency(amount - spent)} remaining</small>
+                <small>{formatCurrency(spent)} spent</small>
+                <small>{formatCurrency(amount - spent)} remaining</small>
             </div>
         </div>
     )

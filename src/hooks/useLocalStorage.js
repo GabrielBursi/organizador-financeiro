@@ -1,1 +1,0 @@
-export const useLocalStorage = (key) => JSON.parse(localStorage.getItem(key))

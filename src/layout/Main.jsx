@@ -1,10 +1,10 @@
 import { Outlet, useLoaderData } from "react-router-dom";
-import { useLocalStorage } from "../hooks";
+import { getLocalStorageItem } from "../hooks";
 import { assets } from '../assets'
 import { Nav } from '../components'
 
 export function mainLoader() {
-    const userName = useLocalStorage('userName')
+    const userName = getLocalStorageItem('userName')
     return { userName }
 }
 

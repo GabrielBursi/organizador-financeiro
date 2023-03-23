@@ -1,12 +1,12 @@
 import { useLoaderData, Link } from "react-router-dom";
 import {toast} from 'react-toastify'
-import { useLocalStorage, createBudget, useWait, createExpense, deleteItem } from "../hooks";
+import { getLocalStorageItem, createBudget, useWait, createExpense, deleteItem } from "../helpers";
 import { Intro, AddBudgetForm, AddExpenseForm, BudgetItem, Table } from '../components'
 
 export function dashBoardLoader(){
-    const userName = useLocalStorage('userName')
-    const budgets = useLocalStorage("budgets");
-    const expenses = useLocalStorage("expenses");
+    const userName = getLocalStorageItem('userName')
+    const budgets = getLocalStorageItem("budgets");
+    const expenses = getLocalStorageItem("expenses");
     return { userName, budgets, expenses }
 }
 

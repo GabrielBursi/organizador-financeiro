@@ -1,10 +1,10 @@
 import { useLoaderData } from "react-router-dom";
-import { useLocalStorage, deleteItem } from "../hooks";
+import { getLocalStorageItem, deleteItem } from "../helpers";
 import { Table } from '../components'
 import { toast } from "react-toastify";
 
 export function expensesLoader() {
-    const expenses = useLocalStorage("expenses");
+    const expenses = getLocalStorageItem("expenses");
     return { expenses };
 }
 export async function expensesAction({ request }) {

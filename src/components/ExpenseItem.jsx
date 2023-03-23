@@ -1,7 +1,7 @@
 import { Link, useFetcher } from "react-router-dom";
 import { BsFillTrash3Fill } from 'react-icons/bs'
 
-import { useFormatCurrency, formatDateToLocaleString, getAllMatchingItems } from "../hooks"
+import { formatCurrency, formatDateToLocaleString, getAllMatchingItems } from "../helpers"
 
 export function ExpenseItem({ expense }) {
 
@@ -16,7 +16,7 @@ export function ExpenseItem({ expense }) {
     return (
         <>
             <td>{expense.name}</td>
-            <td>{useFormatCurrency(expense.amount)}</td>
+            <td>{formatCurrency(expense.amount)}</td>
             <td>{formatDateToLocaleString(expense.createdAt)}</td>
             <td>
                 <Link
