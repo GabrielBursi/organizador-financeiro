@@ -1,5 +1,5 @@
 import { Outlet, useLoaderData } from "react-router-dom";
-import { getLocalStorageItem } from "../hooks";
+import { getLocalStorageItem } from "../helpers";
 import { assets } from '../assets'
 import { Nav } from '../components'
 
