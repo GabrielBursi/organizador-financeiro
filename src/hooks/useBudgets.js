@@ -30,3 +30,17 @@ export function createExpense({name, amount, budgetId}) {
     return localStorage.setItem("expenses",
     JSON.stringify([...existingExpenses, newItem]))
 }
+
+export function getAllMatchingItems({ category, key, value }) {
+    const data = useLocalStorage(category) ?? [];
+    return data.filter((item) => item[key] === value);
+}
+
+export function deleteItem({ key, id }) {
+    const existingData = useLocalStorage(key);
+    if (id) {
+        const newData = existingData.filter((item) => item.id !== id);
+        return localStorage.setItem(key, JSON.stringify(newData));
+    }
+    return localStorage.removeItem(key);
+}

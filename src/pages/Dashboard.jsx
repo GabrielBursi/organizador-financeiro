@@ -1,6 +1,6 @@
 import { useLoaderData, Link } from "react-router-dom";
 import {toast} from 'react-toastify'
-import { useLocalStorage, createBudget, useWait, createExpense } from "../hooks";
+import { useLocalStorage, createBudget, useWait, createExpense, deleteItem } from "../hooks";
 import { Intro, AddBudgetForm, AddExpenseForm, BudgetItem, Table } from '../components'
 
 export function dashBoardLoader(){
@@ -47,6 +47,18 @@ export async function dashboardAction({request}){
             return toast.success(`Expense ${values.newExpense} created!`)
         } catch (e) {
             throw new Error("There was a problem creating your expense.")
+        }
+    }
+
+    if (_action === "deleteExpense") {
+        try {
+            deleteItem({
+                key: "expenses",
+                id: values.expenseId,
+            });
+            return toast.success("Expense deleted!");
+        } catch (e) {
+            throw new Error("There was a problem deleting your expense.");
         }
     }
 }
