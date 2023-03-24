@@ -2,9 +2,20 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { dashBoardLoader, dashboardAction, Dashboard, Error, ExpensesPage, expensesLoader, expensesAction, BudgetPage, budgetAction, budgetLoader } from "./pages";
+import { 
+    dashBoardLoader, 
+    dashboardAction, 
+    Dashboard, 
+    Error, 
+    ExpensesPage, 
+    expensesLoader, 
+    expensesAction, 
+    BudgetPage, 
+    budgetAction, 
+    budgetLoader 
+  } from "./pages";
 import { Main, mainLoader } from './layout'
-import { logoutAction } from "./actions";
+import { logoutAction, deleteBudget } from "./actions";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +37,12 @@ const router = createBrowserRouter([
         loader: budgetLoader,
         action: budgetAction,
         errorElement: <Error />,
+        children: [
+          {
+            path: "delete",
+            action: deleteBudget,
+          },
+        ],
       },
       {
         path: 'expenses',
