@@ -53,7 +53,7 @@ export function formatPercentage(amt) {
 export function formatCurrency(amt) {
     return amt.toLocaleString(undefined, {
         style: "currency",
-        currency: "USD"
+        currency: "BRL"
     })
 }
 

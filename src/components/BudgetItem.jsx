@@ -17,14 +17,14 @@ export function BudgetItem({ budget, showDelete = false }) {
         >
             <div className="progress-text">
                 <h3>{name}</h3>
-                <p>{formatCurrency(amount)} Budgeted</p>
+                <p>{formatCurrency(amount)} Orçado</p>
             </div>
             <progress max={amount} value={spent}>
                 {formatPercentage(spent / amount)}
             </progress>
             <div className="progress-text">
-                <small>{formatCurrency(spent)} spent</small>
-                <small>{formatCurrency(amount - spent)} remaining</small>
+                <small>{formatCurrency(spent)} gasto</small>
+                <small>{formatCurrency(amount - spent)} restante</small>
             </div>
             {showDelete ? (
                 <div className="flex-sm">
@@ -34,7 +34,7 @@ export function BudgetItem({ budget, showDelete = false }) {
                         onSubmit={(event) => {
                             if (
                                 !confirm(
-                                    "Are you sure you want to permanently delete this budget?"
+                                    "Tem certeza de que deseja excluir permanentemente este orçamento?"
                                 )
                             ) {
                                 event.preventDefault();
@@ -42,7 +42,7 @@ export function BudgetItem({ budget, showDelete = false }) {
                         }}
                     >
                         <button type="submit" className="btn">
-                            <span>Delete Budget</span>
+                            <span>Excluir Orçamento</span>
                             <BsFillTrash3Fill width={20} />
                         </button>
                     </Form>
@@ -50,8 +50,8 @@ export function BudgetItem({ budget, showDelete = false }) {
             ) : (
                 <div className="flex-sm">
                     <Link to={`/budget/${id}`} className="btn">
-                        <span>View Details</span>
-                            <HiOutlineBanknotes width={20} />
+                        <span>Ver Detalhes</span>
+                        <HiOutlineBanknotes width={20} />
                     </Link>
                 </div>
             )}

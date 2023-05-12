@@ -6,7 +6,7 @@ export function Table({ expenses, showBudget = true }) {
             <table>
                 <thead>
                     <tr>
-                        {["Name", "Amount", "Date", showBudget ? "Budget" : "", ""].map(
+                        {["Nome", "Valor", "Data", showBudget ? "Budget" : "", ""].map(
                             (i, index) => (
                                 <th key={index}>{i}</th>
                             )

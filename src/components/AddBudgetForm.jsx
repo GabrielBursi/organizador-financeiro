@@ -21,7 +21,7 @@ export function AddBudgetForm() {
     return (
         <div className="form-wrapper">
             <h2 className="h3">
-                Create budget
+                Criar orçamento
             </h2>
             <fetcher.Form
                 method="post"
@@ -29,26 +29,26 @@ export function AddBudgetForm() {
                 ref={formRef}
             >
                 <div className="grid-xs">
-                    <label htmlFor="newBudget">Budget Name</label>
-                    <input 
+                    <label htmlFor="newBudget">Nome do orçamento</label>
+                    <input
                         autoComplete='off'
                         type="text"
                         name="newBudget"
                         id="newBudget"
-                        placeholder="e.g., Groceries"
+                        placeholder="Ex.: Mantimentos"
                         required
                         ref={focusRef}
                     />
                 </div>
                 <div className="grid-xs">
-                    <label htmlFor="newBudgetAmount">Amount</label>
-                    <input 
+                    <label htmlFor="newBudgetAmount">Valor</label>
+                    <input
                         autoComplete='off'
                         type="number"
                         step="0.01"
                         name="newBudgetAmount"
                         id="newBudgetAmount"
-                        placeholder="e.g., $350"
+                        placeholder="Ex.: 350"
                         required
                         inputMode="decimal"
                     />
@@ -56,9 +56,9 @@ export function AddBudgetForm() {
                 <input autoComplete='off' type="hidden" name="_action" value="createBudget" />
                 <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
                     {
-                        isSubmitting ? <span>Submitting…</span> : (
+                        isSubmitting ? <span>Enviando…</span> : (
                             <>
-                                <span>Create budget</span>
+                                <span>Criar orçamento</span>
                                 <BsCurrencyDollar width={20} />
                             </>
                         )

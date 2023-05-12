@@ -6,7 +6,7 @@ import {
     dashBoardLoader, 
     dashboardAction, 
     Dashboard, 
-    Error, 
+    ErrorPage, 
     ExpensesPage, 
     expensesLoader, 
     expensesAction, 
@@ -22,21 +22,21 @@ const router = createBrowserRouter([
     path:"/",
     element: <Main/>,
     loader: mainLoader,
-    errorElement: <Error />,
+    errorPageElement: <ErrorPage />,
     children: [
       {
         index: true,
         element: <Dashboard />,
         loader: dashBoardLoader,
         action: dashboardAction,
-        errorElement: <Error />
+        errorPageElement: <ErrorPage />
       },
       {
         path: "budget/:id",
         element: <BudgetPage />,
         loader: budgetLoader,
         action: budgetAction,
-        errorElement: <Error />,
+        errorPageElement: <ErrorPage />,
         children: [
           {
             path: "delete",
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         element: <ExpensesPage/>,
         loader: expensesLoader,
         action: expensesAction,
-        errorElement: <Error />,
+        errorPageElement: <ErrorPage />,
       },
       {
         path: 'logout',
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <Error/>
+    element: <ErrorPage/>
   }
 ])
 

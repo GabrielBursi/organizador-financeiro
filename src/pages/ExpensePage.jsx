@@ -17,7 +17,7 @@ export async function expensesAction({ request }) {
                 key: "expenses",
                 id: values.expenseId,
             });
-            return toast.success("Expense deleted!");
+            return toast.success("Despesa excluída!");
         } catch (e) {
             throw new Error("There was a problem deleting your expense.");
         }
@@ -31,16 +31,16 @@ export function ExpensesPage() {
 
     return (
         <div className="grid-lg">
-            <h1>All Expenses</h1>
+            <h1>Todas as Despesas</h1>
             {expenses && expenses.length > 0 ? (
                 <div className="grid-md">
                     <h2>
-                        Recent Expenses <small>({expenses.length} total)</small>
+                        Despesas Recentes <small>({expenses.length} no total)</small>
                     </h2>
                     <Table expenses={expenses} />
                 </div>
             ) : (
-                <p>No Expenses to show</p>
+                <p>Nenhuma despesa para mostrar</p>
             )}
         </div>
     );

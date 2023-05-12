@@ -19,7 +19,7 @@ export async function dashboardAction({request}){
     if (_action === "newUser") {
         try {
             localStorage.setItem("userName", JSON.stringify(values.userName))
-            return toast.success(`Welcome, ${values.userName}`)
+            return toast.success(`Bem-vindo, ${values.userName.charAt(0).toUpperCase() + values.userName.slice(1) }`)
         } catch (e) {
             throw new Error("There was a problem creating your account.")
         }
@@ -31,7 +31,7 @@ export async function dashboardAction({request}){
                 name: values.newBudget,
                 amount: values.newBudgetAmount,
             })
-            return toast.success("Budget created!")
+            return toast.success("Orçamento criado!")
         } catch (e) {
             throw new Error("There was a problem creating your budget.")
         }
@@ -44,7 +44,7 @@ export async function dashboardAction({request}){
                 amount: values.newExpenseAmount,
                 budgetId: values.newExpenseBudget
             })
-            return toast.success(`Expense ${values.newExpense} created!`)
+            return toast.success(`Despesa ${values.newExpense} criada!`)
         } catch (e) {
             throw new Error("There was a problem creating your expense.")
         }
@@ -56,7 +56,7 @@ export async function dashboardAction({request}){
                 key: "expenses",
                 id: values.expenseId,
             });
-            return toast.success("Expense deleted!");
+            return toast.success("Despesa excluída!");
         } catch (e) {
             throw new Error("There was a problem deleting your expense.");
         }
@@ -71,16 +71,16 @@ export function Dashboard() {
         <div>
             {userName ? (
                 <div className="dashboard">
-                    <h1>Welcome back, <span className="accent">{userName}</span></h1>
+                    <h1>Bem-vindo de volta, <span className="accent">{userName.charAt(0).toUpperCase() + userName.slice(1)}</span></h1>
                     <div className="grid-sm">
-                        {budgets && budgets.length > 0 ? 
+                        {budgets && budgets.length > 0 ?
                             (
                                 <div className="grid-lg">
                                     <div className="flex-lg">
                                         <AddBudgetForm />
-                                        <AddExpenseForm budgets={budgets}/>
+                                        <AddExpenseForm budgets={budgets} />
                                     </div>
-                                    <h2>Existing Budgets</h2>
+                                    <h2>Orçamentos existentes</h2>
                                     <div className="budgets">
                                         {
                                             budgets.map((budget) => (
@@ -91,30 +91,30 @@ export function Dashboard() {
                                     {
                                         expenses && expenses.length > 0 && (
                                             <div className="grid-md">
-                                                <h2>Recent Expenses</h2>
+                                                <h2>Despesas recentes</h2>
                                                 <Table expenses={expenses.sort((a, b) => b.createdAt - a.createdAt).slice(0.8)} />
                                                 {expenses.length > 8 && (
                                                     <Link to="expenses" className="btn btn--dark">
-                                                        View all expenses
+                                                        Ver todas as despesas
                                                     </Link>
                                                 )}
                                             </div>
                                         )
                                     }
                                 </div>
-                            ) 
-                            : 
+                            )
+                            :
                             (
                                 <div className="grid-sm">
-                                    <p>Personal budgeting is the secret to financial freedom.</p>
-                                    <p>Create a budget to get started!</p>
+                                    <p>O controle do seu dinheiro é a chave para a liberdade financeira.</p>
+                                    <p>Crie um orçamento para começar!</p>
                                     <AddBudgetForm />
                                 </div>
                             )
                         }
                     </div>
                 </div>
-            ) : <Intro/>}
+            ) : <Intro />}
         </div>
     );
 }

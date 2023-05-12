@@ -7,28 +7,28 @@ export function Intro() {
         <div className="intro">
             <div>
                 <h1>
-                    Take Control of <span className="accent">Your Money</span>
+                    Controle <span className="accent">seu dinheiro</span>
                 </h1>
                 <p>
-                    Personal budgeting is the secret to financial freedom. Start your journey today. 
+                    O planejamento financeiro pessoal é o segredo para a liberdade financeira. Comece sua jornada hoje mesmo.
                 </p>
-                <Form method="post"> 
+                <Form method="post">
                     <input
                         type='text'
                         name="userName"
                         required
-                        placeholder="What is your name?"
-                        aria-label="Your name"
+                        placeholder="Qual é o seu nome?"
+                        aria-label="Seu nome"
                         autoComplete="off"
                     />
                     <input type="hidden" name="_action" value="newUser" />
                     <button type="submit" className="btn btn--dark">
-                        <span>Create Account</span>
-                        <AiOutlineUserAdd width={20}/>
+                        <span>Criar conta</span>
+                        <AiOutlineUserAdd width={20} />
                     </button>
                 </Form>
             </div>
-            <img src={assets.illustration} alt="Person with money" width={600} draggable={false}/>
+            <img src={assets.illustration} alt="Pessoa com dinheiro" width={600} draggable={false} />
         </div>
     );
 }

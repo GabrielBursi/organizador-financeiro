@@ -20,10 +20,9 @@ export const AddExpenseForm = ({ budgets }) => {
 
     return (
         <div className="form-wrapper">
-            <h2 className="h3">Add New{" "}<span className="accent">
+            <h2 className="h3">Adicionar Nova Despesa Para{" "}<span className="accent">
                 {budgets.length === 1 && `${budgets.map((budg) => budg.name)}`}
             </span>{" "}
-                Expense
             </h2>
             <fetcher.Form
                 method="post"
@@ -32,33 +31,33 @@ export const AddExpenseForm = ({ budgets }) => {
             >
                 <div className="expense-inputs">
                     <div className="grid-xs">
-                        <label htmlFor="newExpense">Expense Name</label>
-                        <input 
+                        <label htmlFor="newExpense">Nome da Despesa</label>
+                        <input
                             autoComplete="off"
                             type="text"
                             name="newExpense"
                             id="newExpense"
-                            placeholder="e.g., Coffee"
+                            placeholder="ex: Café"
                             ref={focusRef}
                             required
                         />
                     </div>
                     <div className="grid-xs">
-                        <label htmlFor="newExpenseAmount">Amount</label>
-                        <input 
+                        <label htmlFor="newExpenseAmount">Valor</label>
+                        <input
                             autoComplete="off"
                             type="number"
                             step="0.01"
                             inputMode="decimal"
                             name="newExpenseAmount"
                             id="newExpenseAmount"
-                            placeholder="e.g., 3.50"
+                            placeholder="ex: 3.50"
                             required
                         />
                     </div>
                 </div>
                 <div className="grid-xs" hidden={budgets.length === 1}>
-                    <label htmlFor="newExpenseBudget">Budget Category</label>
+                    <label htmlFor="newExpenseBudget">Categoria do Orçamento</label>
                     <select name="newExpenseBudget" id="newExpenseBudget" required>
                         {
                             budgets
@@ -76,9 +75,9 @@ export const AddExpenseForm = ({ budgets }) => {
                 <input autoComplete="off" type="hidden" name="_action" value="createExpense" />
                 <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
                     {
-                        isSubmitting ? <span>Submitting…</span> : (
+                        isSubmitting ? <span>Enviando…</span> : (
                             <>
-                                <span>Add Expense</span>
+                                <span>Adicionar Despesa</span>
                                 <AiFillPlusCircle width={20} />
                             </>
                         )
